@@ -29,24 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtDeuda = new System.Windows.Forms.TextBox();
-            this.lblDeuda = new System.Windows.Forms.Label();
+            this.btnCargar = new System.Windows.Forms.Button();
             this.txtLimite = new System.Windows.Forms.TextBox();
             this.lblLimite = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnCargar = new System.Windows.Forms.Button();
+            this.txtDeuda = new System.Windows.Forms.TextBox();
+            this.lblDeuda = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.lblTotalDeuda = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblTotalDeuda = new System.Windows.Forms.Label();
-            this.btnListar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -70,39 +71,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // lblCodigo
+            // btnCargar
             // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(6, 28);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(80, 25);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(92, 33);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(144, 20);
-            this.txtCodigo.TabIndex = 1;
-            // 
-            // txtDeuda
-            // 
-            this.txtDeuda.Location = new System.Drawing.Point(92, 74);
-            this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.Size = new System.Drawing.Size(144, 20);
-            this.txtDeuda.TabIndex = 3;
-            // 
-            // lblDeuda
-            // 
-            this.lblDeuda.AutoSize = true;
-            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeuda.Location = new System.Drawing.Point(6, 69);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(75, 25);
-            this.lblDeuda.TabIndex = 2;
-            this.lblDeuda.Text = "Deuda";
+            this.btnCargar.Location = new System.Drawing.Point(356, 123);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(172, 42);
+            this.btnCargar.TabIndex = 8;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // txtLimite
             // 
@@ -110,6 +87,8 @@
             this.txtLimite.Name = "txtLimite";
             this.txtLimite.Size = new System.Drawing.Size(75, 20);
             this.txtLimite.TabIndex = 7;
+            this.txtLimite.TextChanged += new System.EventHandler(this.txtLimite_TextChanged);
+            this.txtLimite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLimite_KeyPress);
             // 
             // lblLimite
             // 
@@ -127,6 +106,8 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(165, 20);
             this.txtUsuario.TabIndex = 5;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // lblUsuario
             // 
@@ -138,17 +119,46 @@
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario";
             // 
-            // btnCargar
+            // txtDeuda
             // 
-            this.btnCargar.Location = new System.Drawing.Point(356, 123);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(172, 42);
-            this.btnCargar.TabIndex = 8;
-            this.btnCargar.Text = "Cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
+            this.txtDeuda.Location = new System.Drawing.Point(92, 74);
+            this.txtDeuda.Name = "txtDeuda";
+            this.txtDeuda.Size = new System.Drawing.Size(144, 20);
+            this.txtDeuda.TabIndex = 3;
+            this.txtDeuda.TextChanged += new System.EventHandler(this.txtDeuda_TextChanged);
+            this.txtDeuda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeuda_KeyPress);
+            // 
+            // lblDeuda
+            // 
+            this.lblDeuda.AutoSize = true;
+            this.lblDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeuda.Location = new System.Drawing.Point(6, 69);
+            this.lblDeuda.Name = "lblDeuda";
+            this.lblDeuda.Size = new System.Drawing.Size(75, 25);
+            this.lblDeuda.TabIndex = 2;
+            this.lblDeuda.Text = "Deuda";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(92, 33);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(144, 20);
+            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(6, 28);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(80, 25);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "Código";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSalir);
             this.groupBox2.Controls.Add(this.btnListar);
             this.groupBox2.Controls.Add(this.lblTotalDeuda);
             this.groupBox2.Controls.Add(this.lblTitulo);
@@ -159,6 +169,45 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de datos";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(11, 231);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(172, 42);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(356, 231);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(172, 42);
+            this.btnListar.TabIndex = 9;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Visible = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // lblTotalDeuda
+            // 
+            this.lblTotalDeuda.AutoSize = true;
+            this.lblTotalDeuda.Location = new System.Drawing.Point(369, 190);
+            this.lblTotalDeuda.Name = "lblTotalDeuda";
+            this.lblTotalDeuda.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalDeuda.TabIndex = 10;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(198, 181);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(165, 25);
+            this.lblTitulo.TabIndex = 9;
+            this.lblTitulo.Text = "Total de Deuda:";
             // 
             // dgvClientes
             // 
@@ -193,33 +242,6 @@
             this.Column4.HeaderText = "Deuda";
             this.Column4.Name = "Column4";
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(198, 181);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(165, 25);
-            this.lblTitulo.TabIndex = 9;
-            this.lblTitulo.Text = "Total de Deuda:";
-            // 
-            // lblTotalDeuda
-            // 
-            this.lblTotalDeuda.AutoSize = true;
-            this.lblTotalDeuda.Location = new System.Drawing.Point(369, 190);
-            this.lblTotalDeuda.Name = "lblTotalDeuda";
-            this.lblTotalDeuda.Size = new System.Drawing.Size(0, 13);
-            this.lblTotalDeuda.TabIndex = 10;
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(356, 231);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(172, 42);
-            this.btnListar.TabIndex = 9;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            // 
             // frmGestionClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +250,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmGestionClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de clientes";
+            this.Load += new System.EventHandler(this.frmGestionClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -259,6 +283,7 @@
         private System.Windows.Forms.Label lblTotalDeuda;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
