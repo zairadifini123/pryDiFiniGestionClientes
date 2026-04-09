@@ -40,7 +40,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnListar = new System.Windows.Forms.Button();
             this.lblTotalDeuda = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
@@ -48,6 +47,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnListarDeudores = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -64,12 +65,13 @@
             this.groupBox1.Controls.Add(this.lblDeuda);
             this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.lblCodigo);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(543, 183);
+            this.groupBox1.Size = new System.Drawing.Size(564, 502);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Carga de datos";
             // 
             // btnCargar
             // 
@@ -158,8 +160,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnSalir);
+            this.groupBox2.Controls.Add(this.btnListarDeudores);
             this.groupBox2.Controls.Add(this.btnListar);
+            this.groupBox2.Controls.Add(this.btnSalir);
             this.groupBox2.Controls.Add(this.lblTotalDeuda);
             this.groupBox2.Controls.Add(this.lblTitulo);
             this.groupBox2.Controls.Add(this.dgvClientes);
@@ -172,31 +175,21 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(11, 231);
+            this.btnSalir.Location = new System.Drawing.Point(11, 240);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(172, 42);
+            this.btnSalir.Size = new System.Drawing.Size(135, 25);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(356, 231);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(172, 42);
-            this.btnListar.TabIndex = 9;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Visible = false;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
             // lblTotalDeuda
             // 
             this.lblTotalDeuda.AutoSize = true;
-            this.lblTotalDeuda.Location = new System.Drawing.Point(369, 190);
+            this.lblTotalDeuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDeuda.Location = new System.Drawing.Point(369, 185);
             this.lblTotalDeuda.Name = "lblTotalDeuda";
-            this.lblTotalDeuda.Size = new System.Drawing.Size(0, 13);
+            this.lblTotalDeuda.Size = new System.Drawing.Size(0, 20);
             this.lblTotalDeuda.TabIndex = 10;
             // 
             // lblTitulo
@@ -221,7 +214,6 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(517, 150);
             this.dgvClientes.TabIndex = 0;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Código";
@@ -241,6 +233,26 @@
             // 
             this.Column4.HeaderText = "Deuda";
             this.Column4.Name = "Column4";
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(393, 240);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(135, 25);
+            this.btnListar.TabIndex = 12;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click_1);
+            // 
+            // btnListarDeudores
+            // 
+            this.btnListarDeudores.Location = new System.Drawing.Point(252, 240);
+            this.btnListarDeudores.Name = "btnListarDeudores";
+            this.btnListarDeudores.Size = new System.Drawing.Size(135, 25);
+            this.btnListarDeudores.TabIndex = 13;
+            this.btnListarDeudores.Text = "Listar deudores";
+            this.btnListarDeudores.UseVisualStyleBackColor = true;
+            this.btnListarDeudores.Click += new System.EventHandler(this.btnListarDeudores_Click);
             // 
             // frmGestionClientes
             // 
@@ -282,8 +294,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label lblTotalDeuda;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnListarDeudores;
     }
 }
 
