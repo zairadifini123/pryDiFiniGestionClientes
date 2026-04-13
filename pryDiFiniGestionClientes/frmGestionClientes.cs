@@ -17,34 +17,24 @@ namespace pryDiFiniGestionClientes
             InitializeComponent();
         }
 
-        private struct RegClientes
-        {
-            public Int32 Codigo;
-            public String Usuario;
-            public Decimal Deuda;
-            public Decimal Limite;
-        }
-
-        private RegClientes[] Clientes = new RegClientes[10];
-
-        private Int32 INDICE = 0;
+        
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            if (INDICE < Clientes.Length)
+            if (Vector.INDICE < Vector.Clientes.Length)
             {
                 Int32 i = 0;
-                while (Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < INDICE) 
+                while (Vector.Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < Vector.INDICE) 
                 {
                     i++;
                 }
 
-                if (i== INDICE)
+                if (i== Vector.INDICE)
                 {
-                    Clientes[INDICE].Codigo = Convert.ToInt32(txtCodigo.Text);
-                    Clientes[INDICE].Usuario = txtUsuario.Text;
-                    Clientes[INDICE].Deuda = Convert.ToDecimal(txtDeuda.Text);
-                    Clientes[INDICE].Limite = Convert.ToDecimal(txtLimite.Text);
-                    INDICE++;
+                    Vector.Clientes[Vector.INDICE].Codigo = Convert.ToInt32(txtCodigo.Text);
+                    Vector.Clientes[Vector.INDICE].Usuario = txtUsuario.Text;
+                    Vector.Clientes[Vector.INDICE].Deuda = Convert.ToDecimal(txtDeuda.Text);
+                    Vector.Clientes[Vector.INDICE].Limite = Convert.ToDecimal(txtLimite.Text);
+                    Vector.INDICE++;
                     MessageBox.Show("Los datos se cargaron correctamente");
                     txtCodigo.Text = "";
                     txtUsuario.Text = "";
@@ -110,10 +100,10 @@ namespace pryDiFiniGestionClientes
         {
             Decimal TotalDeuda = 0;
             dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < INDICE; i++)
+            for (Int32 i = 0; i < Vector.INDICE; i++)
             {
-                dgvClientes.Rows.Add(Clientes[i].Codigo, Clientes[i].Usuario, Clientes[i].Limite, Clientes[i].Deuda);
-                TotalDeuda = TotalDeuda + Clientes[i].Deuda;
+                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
             }
 
             lblTotalDeuda.Text = TotalDeuda.ToString();
@@ -160,23 +150,23 @@ namespace pryDiFiniGestionClientes
 
         private void PreCarga()
         {
-            Clientes[INDICE].Codigo = 10;
-            Clientes[INDICE].Usuario = "Ana";
-            Clientes[INDICE].Deuda = 400;
-            Clientes[INDICE].Limite = 10000;
-            INDICE++;
+            Vector.Clientes[Vector.INDICE].Codigo = 10;
+            Vector.Clientes[Vector.INDICE].Usuario = "Ana";
+            Vector.Clientes[Vector.INDICE].Deuda = 400;
+            Vector.Clientes[Vector.INDICE].Limite = 10000;
+            Vector.INDICE++;
 
-            Clientes[INDICE].Codigo = 20;
-            Clientes[INDICE].Usuario = "Diego";
-            Clientes[INDICE].Deuda = 0;
-            Clientes[INDICE].Limite = 20000;
-            INDICE++;
+            Vector.Clientes[Vector.INDICE].Codigo = 20;
+            Vector.Clientes[Vector.INDICE].Usuario = "Diego";
+            Vector.Clientes[Vector.INDICE].Deuda = 0;
+            Vector.Clientes[Vector.INDICE].Limite = 20000;
+            Vector.INDICE++;
 
-            Clientes[INDICE].Codigo = 30;
-            Clientes[INDICE].Usuario = "Maria";
-            Clientes[INDICE].Deuda = 852;
-            Clientes[INDICE].Limite = 60000;
-            INDICE++;
+            Vector.Clientes[Vector.INDICE].Codigo = 30;
+            Vector.Clientes[Vector.INDICE].Usuario = "Maria";
+            Vector.Clientes[Vector.INDICE].Deuda = 852;
+            Vector.Clientes[Vector.INDICE].Limite = 60000;
+            Vector.INDICE++;
         }
 
         private void btnListar_Click_1(object sender, EventArgs e)
@@ -188,12 +178,12 @@ namespace pryDiFiniGestionClientes
         {
             Decimal TotalDeuda = 0;
             dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < INDICE; i++)
+            for (Int32 i = 0; i < Vector.INDICE; i++)
             {
-                if (Clientes[i].Deuda>0)
+                if (Vector.Clientes[i].Deuda>0)
                 {
-                    dgvClientes.Rows.Add(Clientes[i].Codigo, Clientes[i].Usuario, Clientes[i].Limite, Clientes[i].Deuda);
-                    TotalDeuda = TotalDeuda + Clientes[i].Deuda;
+                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                    TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
                 }
             }
 
