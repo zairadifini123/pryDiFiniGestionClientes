@@ -23,7 +23,7 @@ namespace pryDiFiniGestionClientes
             if (Vector.INDICE < Vector.Clientes.Length)
             {
                 Int32 i = 0;
-                while (Vector.Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < Vector.INDICE) 
+                while (i < Vector.INDICE && Vector.Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text)) 
                 {
                     i++;
                 }
@@ -31,7 +31,7 @@ namespace pryDiFiniGestionClientes
                 if (i== Vector.INDICE)
                 {
                     Vector.Clientes[Vector.INDICE].Codigo = Convert.ToInt32(txtCodigo.Text);
-                    Vector.Clientes[Vector.INDICE].Usuario = txtUsuario.Text;
+                    Vector.Clientes[Vector.INDICE].Nombre = txtUsuario.Text;
                     Vector.Clientes[Vector.INDICE].Deuda = Convert.ToDecimal(txtDeuda.Text);
                     Vector.Clientes[Vector.INDICE].Limite = Convert.ToDecimal(txtLimite.Text);
                     Vector.INDICE++;
@@ -102,7 +102,7 @@ namespace pryDiFiniGestionClientes
             dgvClientes.Rows.Clear();
             for (Int32 i = 0; i < Vector.INDICE; i++)
             {
-                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Nombre, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
                 TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
             }
 
@@ -117,7 +117,10 @@ namespace pryDiFiniGestionClientes
         private void frmGestionClientes_Load(object sender, EventArgs e)
         {
             btnCargar.Enabled = false;
-            PreCarga();
+            if (Vector.INDICE==0)
+            {
+                PreCarga();
+            }
             Listar();
         }
 
@@ -151,19 +154,19 @@ namespace pryDiFiniGestionClientes
         private void PreCarga()
         {
             Vector.Clientes[Vector.INDICE].Codigo = 10;
-            Vector.Clientes[Vector.INDICE].Usuario = "Ana";
+            Vector.Clientes[Vector.INDICE].Nombre = "Ana";
             Vector.Clientes[Vector.INDICE].Deuda = 400;
             Vector.Clientes[Vector.INDICE].Limite = 10000;
             Vector.INDICE++;
 
             Vector.Clientes[Vector.INDICE].Codigo = 20;
-            Vector.Clientes[Vector.INDICE].Usuario = "Diego";
+            Vector.Clientes[Vector.INDICE].Nombre = "Diego";
             Vector.Clientes[Vector.INDICE].Deuda = 0;
             Vector.Clientes[Vector.INDICE].Limite = 20000;
             Vector.INDICE++;
 
             Vector.Clientes[Vector.INDICE].Codigo = 30;
-            Vector.Clientes[Vector.INDICE].Usuario = "Maria";
+            Vector.Clientes[Vector.INDICE].Nombre = "Maria";
             Vector.Clientes[Vector.INDICE].Deuda = 852;
             Vector.Clientes[Vector.INDICE].Limite = 60000;
             Vector.INDICE++;
@@ -182,7 +185,7 @@ namespace pryDiFiniGestionClientes
             {
                 if (Vector.Clientes[i].Deuda>0)
                 {
-                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Nombre, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
                     TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
                 }
             }
@@ -190,5 +193,6 @@ namespace pryDiFiniGestionClientes
             lblTotalDeuda.Text = TotalDeuda.ToString();
         }
 
+        
     }
 }

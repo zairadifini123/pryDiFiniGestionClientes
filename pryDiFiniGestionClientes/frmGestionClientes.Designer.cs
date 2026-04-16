@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionClientes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCargar = new System.Windows.Forms.Button();
             this.txtLimite = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnListarDeudores = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblTotalDeuda = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -47,8 +50,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnListarDeudores = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -173,6 +174,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta de datos";
             // 
+            // btnListarDeudores
+            // 
+            this.btnListarDeudores.Location = new System.Drawing.Point(252, 240);
+            this.btnListarDeudores.Name = "btnListarDeudores";
+            this.btnListarDeudores.Size = new System.Drawing.Size(135, 25);
+            this.btnListarDeudores.TabIndex = 13;
+            this.btnListarDeudores.Text = "Listar deudores";
+            this.btnListarDeudores.UseVisualStyleBackColor = true;
+            this.btnListarDeudores.Click += new System.EventHandler(this.btnListarDeudores_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(393, 240);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(135, 25);
+            this.btnListar.TabIndex = 12;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click_1);
+            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(11, 240);
@@ -204,6 +225,8 @@
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -212,47 +235,33 @@
             this.Column4});
             this.dgvClientes.Location = new System.Drawing.Point(11, 28);
             this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(517, 150);
             this.dgvClientes.TabIndex = 0;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Código";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Usuario";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Límite de crédito";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Deuda";
             this.Column4.Name = "Column4";
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(393, 240);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(135, 25);
-            this.btnListar.TabIndex = 12;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click_1);
-            // 
-            // btnListarDeudores
-            // 
-            this.btnListarDeudores.Location = new System.Drawing.Point(252, 240);
-            this.btnListarDeudores.Name = "btnListarDeudores";
-            this.btnListarDeudores.Size = new System.Drawing.Size(135, 25);
-            this.btnListarDeudores.TabIndex = 13;
-            this.btnListarDeudores.Text = "Listar deudores";
-            this.btnListarDeudores.UseVisualStyleBackColor = true;
-            this.btnListarDeudores.Click += new System.EventHandler(this.btnListarDeudores_Click);
+            this.Column4.ReadOnly = true;
             // 
             // frmGestionClientes
             // 
@@ -261,6 +270,7 @@
             this.ClientSize = new System.Drawing.Size(564, 502);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGestionClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de clientes";
