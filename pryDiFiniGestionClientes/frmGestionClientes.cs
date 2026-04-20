@@ -96,34 +96,13 @@ namespace pryDiFiniGestionClientes
                 (e.KeyChar != ',' || t.Text.Contains(","));
         }
 
-        private void Listar()
-        {
-            Decimal TotalDeuda = 0;
-            dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Vector.INDICE; i++)
-            {
-                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Nombre, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
-                TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
-            }
-
-            lblTotalDeuda.Text = TotalDeuda.ToString();
-        }
-
+        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void frmGestionClientes_Load(object sender, EventArgs e)
-        {
-            btnCargar.Enabled = false;
-            if (Vector.INDICE==0)
-            {
-                PreCarga();
-            }
-            Listar();
-        }
-
+        
         private void Comprobar ()
         {
             if (txtCodigo.Text != "" && txtUsuario.Text != "" && txtDeuda.Text != "" && txtLimite.Text != "")
@@ -151,48 +130,10 @@ namespace pryDiFiniGestionClientes
             Comprobar();
         }
 
-        private void PreCarga()
+     
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            Vector.Clientes[Vector.INDICE].Codigo = 10;
-            Vector.Clientes[Vector.INDICE].Nombre = "Ana";
-            Vector.Clientes[Vector.INDICE].Deuda = 400;
-            Vector.Clientes[Vector.INDICE].Limite = 10000;
-            Vector.INDICE++;
-
-            Vector.Clientes[Vector.INDICE].Codigo = 20;
-            Vector.Clientes[Vector.INDICE].Nombre = "Diego";
-            Vector.Clientes[Vector.INDICE].Deuda = 0;
-            Vector.Clientes[Vector.INDICE].Limite = 20000;
-            Vector.INDICE++;
-
-            Vector.Clientes[Vector.INDICE].Codigo = 30;
-            Vector.Clientes[Vector.INDICE].Nombre = "Maria";
-            Vector.Clientes[Vector.INDICE].Deuda = 852;
-            Vector.Clientes[Vector.INDICE].Limite = 60000;
-            Vector.INDICE++;
+            this.Close();
         }
-
-        private void btnListar_Click_1(object sender, EventArgs e)
-        {
-            Listar();
-        }
-
-        private void btnListarDeudores_Click(object sender, EventArgs e)
-        {
-            Decimal TotalDeuda = 0;
-            dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Vector.INDICE; i++)
-            {
-                if (Vector.Clientes[i].Deuda>0)
-                {
-                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Nombre, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
-                    TotalDeuda = TotalDeuda + Vector.Clientes[i].Deuda;
-                }
-            }
-
-            lblTotalDeuda.Text = TotalDeuda.ToString();
-        }
-
-        
     }
 }

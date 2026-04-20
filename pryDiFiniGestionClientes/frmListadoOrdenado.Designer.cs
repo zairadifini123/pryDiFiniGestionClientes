@@ -40,12 +40,14 @@
             this.lblModo = new System.Windows.Forms.Label();
             this.cmbCampo = new System.Windows.Forms.ComboBox();
             this.lblCampo = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoOrdenado)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSalir);
             this.groupBox1.Controls.Add(this.btnListar);
             this.groupBox1.Controls.Add(this.dgvListadoOrdenado);
             this.groupBox1.Controls.Add(this.cmbModo);
@@ -61,7 +63,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(347, 368);
+            this.btnListar.Location = new System.Drawing.Point(377, 367);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(75, 23);
             this.btnListar.TabIndex = 5;
@@ -155,6 +157,16 @@
             this.lblCampo.TabIndex = 0;
             this.lblCampo.Text = "Campo";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(11, 367);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmListadoOrdenado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

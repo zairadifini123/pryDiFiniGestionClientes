@@ -74,6 +74,7 @@
             this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
             this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.cerrarToolStripMenuItem.Text = "Cerrar...";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -98,12 +99,14 @@
             this.listadoDeClientesToolStripMenuItem.Name = "listadoDeClientesToolStripMenuItem";
             this.listadoDeClientesToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.listadoDeClientesToolStripMenuItem.Text = "Listado de clientes...";
+            this.listadoDeClientesToolStripMenuItem.Click += new System.EventHandler(this.listadoDeClientesToolStripMenuItem_Click);
             // 
             // listadoDeDeToolStripMenuItem
             // 
             this.listadoDeDeToolStripMenuItem.Name = "listadoDeDeToolStripMenuItem";
             this.listadoDeDeToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.listadoDeDeToolStripMenuItem.Text = "Listado de deudores...";
+            this.listadoDeDeToolStripMenuItem.Click += new System.EventHandler(this.listadoDeDeToolStripMenuItem_Click);
             // 
             // listadoDeClientesOrdenadosPorToolStripMenuItem
             // 
@@ -131,6 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de manejo de clientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmClientesManejo_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
